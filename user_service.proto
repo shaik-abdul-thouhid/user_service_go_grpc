@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package userservice;
+
+option go_package = "totality_corp_assignment/main;main";
+
+service UserService {
+  rpc GetUserById (UserRequest) returns (UserResponse);
+  rpc GetUsers (nil) returns (UsersResponse);
+}
+
+message UserRequest {
+  int32 id = 1;
+}
+
+message nil {}
+
+message UserResponse {
+  int32 id = 1;
+  string fname = 2;
+  string city = 3;
+  int64 phone = 4;
+  double height = 5;
+  bool Married = 6;
+}
+
+message UsersResponse {
+  repeated UserResponse users = 1;
+}
